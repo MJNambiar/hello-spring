@@ -22,7 +22,7 @@ public class HelloController {
     }
 
     //create handler that handles requests of form /hello?name=LaunchCode
-
+//
 //    @RequestMapping(method = {RequestMethod.GET, RequestMethod.POST})
 //    public String helloWithQueryParam(@RequestParam String name) {
 //        return "Hello, " + name + "!";
@@ -55,56 +55,22 @@ public class HelloController {
                 "</html>";
     }
 
-//    @RequestMapping(value= "hello", method = RequestMethod.POST)
-//    public static String createMessage(@RequestParam String name, @RequestParam String language) {
-//        String greeting = "";
-//        if (language.equals("French")) {
-//            greeting = "Bonjour " + name + "!";
-//        } else if (language.equals("English")) {
-//            greeting = "Hello " + name + "!";
-//        } else if (language.equals("Spanish")) {
-//            greeting = "Hola " + name + "!";
-//        } else if (language.equals("Hindi")) {
-//            greeting = "Namaste " + name + "!";
-//        } else if (language.equals("Mandarin")) {
-//            greeting = "Ni Hao " + name + "!";
-//        }
-//        return greeting;
-//    }
 
-    @RequestMapping(value="hello", method = RequestMethod.POST)
-    @ResponseBody
-    public String helloPost(@RequestParam String name, @RequestParam String language) {
-        if (name == null) {
-            name = "World";
-        }
-
-        return createMessage(name, language);
-
-        // For a bonus mission, students can change this response text to look nicer.
-        // This is subjective, but students should be modifying the HTML of the response string.
-    }
-
-    public static String createMessage(String n, String l) {
+    @RequestMapping(method = RequestMethod.POST)
+    public static String createMessage(@RequestParam String name, @RequestParam String language) {
         String greeting = "";
-
-        if (l.equals("english")) {
-            greeting = "Hello";
+        if (language.equals("French")) {
+            greeting = "Bonjour " + name + "!";
+        } else if (language.equals("English")) {
+            greeting = "Hello " + name + "!";
+        } else if (language.equals("Spanish")) {
+            greeting = "Hola " + name + "!";
+        } else if (language.equals("Hindi")) {
+            greeting = "Namaste " + name + "!";
+        } else if (language.equals("Mandarin")) {
+            greeting = "Ni Hao " + name + "!";
         }
-        else if (l.equals("french")) {
-            greeting = "Bonjour";
-        }
-        else if (l.equals("italian")) {
-            greeting = "Bonjourno";
-        }
-        else if (l.equals("spanish")) {
-            greeting = "Hola";
-        }
-        else if (l.equals("german")) {
-            greeting = "Hallo";
-        }
-
-        return greeting + " " + n;
+        return greeting;
     }
 
 
