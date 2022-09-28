@@ -5,7 +5,6 @@ import org.springframework.web.bind.annotation.*;
 
 @Controller
 @ResponseBody
-@RequestMapping("hello")
 public class HelloController {
 
     //Handles request at path /hello
@@ -23,13 +22,13 @@ public class HelloController {
 
     //create handler that handles requests of form /hello?name=LaunchCode
 
-    @RequestMapping(method = {RequestMethod.GET, RequestMethod.POST})
+    @RequestMapping(method = {RequestMethod.GET, RequestMethod.POST}, value="hello")
     public String helloWithQueryParam(@RequestParam String name) {
         return "Hello, " + name + "!";
     }
 
     //use path parameters; handles requests of form /hello/LaunchCode
-    @GetMapping("{name}")
+    @GetMapping("hello/{name}")
     public String helloWithPathParam(@PathVariable String name){
         return "Hello, " + name + "!";
     }
@@ -39,7 +38,7 @@ public class HelloController {
     public String helloForm() {
         return "<html>" +
                 "<body>" +
-                "<form action='/hello' method='post'>" + //submit a request to /hello
+                "<form action='hello' method='post'>" + //submit a request to /hello
                 "<input type ='text' name='name'>" +
                 "<input type ='submit' value='Greet me!'>" +
                 "</form>" +
