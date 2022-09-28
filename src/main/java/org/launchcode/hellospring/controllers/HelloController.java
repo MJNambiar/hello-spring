@@ -18,7 +18,7 @@ public class HelloController {
     //Handles request at path /hello/goodbye
     @GetMapping("goodbye")
     public String goodbye() {
-        return "Goodbye, Spring!";
+        return "Goodbye, Springs!";
     }
 
     //create handler that handles requests of form /hello?name=LaunchCode
